@@ -1,10 +1,10 @@
 namespace POOConceptsCore;
 
-public abstract class Employee
+public abstract class Employee : IPay
 {
     public int Id { get; set; }
-    public int Firstname { get; set; }
-    public int Lastname { get; set; }
+    public string Firstname { get; set; } = null!;
+    public string Lastname { get; set; } = null!;
     public bool IsActive { get; set; }
     public Date BornDate { get; set; } = null!;
     public Date HireDate { get; set; } = null!;
@@ -14,8 +14,6 @@ public abstract class Employee
 
     public override string ToString() =>
         $"{Id}\t{Firstname} {Lastname}\n\t" +
-        $"Hire date..: {HireDate}\n\t" + 
-        $"Salary.....: {GetValueToPay():C2}";
-    
-    
+        $"Born date......: {BornDate}\n\t" +
+        $"Hire date......: {HireDate}";
 }

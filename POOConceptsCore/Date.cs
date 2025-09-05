@@ -1,4 +1,6 @@
-﻿namespace POOConceptsCore;
+﻿using System.IO.Compression;
+
+namespace POOConceptsCore;
 
 public class Date
 {
@@ -16,48 +18,30 @@ public class Date
 
     public Date(int year, int month, int day)
     {
-        Year = year;
-        Month = month;
-        Day = day;
+        Year = ValidateYear(year);
+        Month = ValidateMonth(month);
+        Day = ValidateDay(day);
     }
 
     public int Day
     {
         get => _day;
-        set
-        {
-            _day = ValidateDay(value);
-        }
+        set => _day = ValidateDay(value);
     }
 
     public int Month
     {
         get => _month;
-        set
-        {
-            _month = ValidateMonth(value);
-        }
+        set => _month = ValidateMonth(value);
     }
 
     public int Year
     {
         get => _year;
-        set
-        {
-            _year = ValidateYear(value);
-        }
+        set => _year = ValidateYear(value);
     }
-
-    public override string ToString()
-    {
-        return $"{Year:0000}/{Month:00}/{Day:00}";
-    }
-
-    private bool IsLeapYear(int year)
-    {
-        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
-    }
-
+    public override string ToString() => $"{Year:0000}/{Month:00}/{Day:00}";
+    private bool IsLeapYear(int year) => (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
     private int ValidateYear(int year)
     {
         if (year < 0)
@@ -75,7 +59,7 @@ public class Date
         }
         return month;
     }
-
+    
     private int ValidateDay(int day)
     {
         int maxDay = Month switch
@@ -90,6 +74,6 @@ public class Date
             return day;
         }
 
-        throw new Exception($"The day: {day}, is not valid for month: {Month} and year: {Year}."); 
+        throw new Exception($"The day: {day}, is not valid for month: {Month} and year: {Year}.");
     }  
 }
