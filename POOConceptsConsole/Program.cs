@@ -1,5 +1,4 @@
-﻿using System.Data.Common;
-using POOConceptsCore;
+﻿using POOConceptsCore;
 
 
 try
@@ -26,7 +25,7 @@ try
         total += item.GetValueToPay();
     }
     Console.WriteLine("                         ====================");
-    Console.WriteLine($"TOTAL:                         {total:C2}");
+    Console.WriteLine($"TOTAL:                        {total:C2}\n");
 
 }
 catch (Exception ex)

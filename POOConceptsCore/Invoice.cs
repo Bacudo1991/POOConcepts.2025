@@ -10,9 +10,9 @@ public class Invoice : IPay
 
     public override string ToString() =>
         $"{Id}\t{Description}\n\t" +
-        $"Quantity......: {Quantity,20:N2}\n\t" +
-        $"Price.........: {Price,20:C2}\n\t" +
-        $"Value to pay..: {GetValueToPay(),20:C2}";
+        $"Quantity.......: {Quantity,20:N2}\n\t" +
+        $"Price..........: {Price,20:C2}\n\t" +
+        $"Value to pay...: {GetValueToPay(),20:C2}";
         
 
 }
